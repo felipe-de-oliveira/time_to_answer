@@ -4,16 +4,16 @@
       admim:
         one: Administrador
         other: Administradores
-      profile:
-        one: Perfil
-        other: Perfi
+      user:
+        one: Usuário
+        other:  Usuários
     attributes:
       admim: 
         id: Código
         email: Email
         created_at: Criado em 
         updated_at: Atualizado em
-      profile: 
+      user: 
         id: Código
         email: Email
         created_at: Criado em 
