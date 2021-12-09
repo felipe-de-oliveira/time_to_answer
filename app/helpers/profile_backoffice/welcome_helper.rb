@@ -1,2 +1,0 @@
-module ProfileBackoffice::WelcomeHelper
-end
