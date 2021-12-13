@@ -26,10 +26,7 @@
     "contributors": [
         "David Miller (https://davidmiller.io/)"
     ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/StartBootstrap/startbootstrap-sb-admin-2.git"
-    },
+    "repository": "https://github.com/StartBootstrap/startbootstrap-sb-admin-2.git",
     "dependencies": {
         "@fortawesome/fontawesome-free": "5.15.3",
         "bootstrap": "4.6.0",
@@ -50,5 +47,6 @@
         "gulp-sass": "4.1.0",
         "gulp-uglify": "3.0.2",
         "merge-stream": "2.0.0"
-    }
+    },
+    "main": "index.js"
 }
