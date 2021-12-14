@@ -1,5 +1,9 @@
 {
   "name": "time_to_answer",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "boostrap": "^2.0.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "3.6.0"
+  }
 }
