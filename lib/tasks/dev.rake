@@ -16,6 +16,9 @@ namespace :dev do
     puts "Criando um Administador padrão..."
     %x(rails dev:add_default_admin)
 
+    puts "Criando Administadores extras..."
+    %x(rails dev:add_extras_admins)
+
     puts "Criando um Usuário padrão..."
     %x(rails dev:add_default_user)
   end      
@@ -28,8 +31,18 @@ namespace :dev do
       password_confirmation: DEFAULT_PASSWORD
     )
   end
-    
-  
+
+  desc "Adicionar administrador padrão"
+  task add_extras_admins: :environment do
+    10.times do |i|
+      Admin.create!(
+        email: Faker::Internet.email,
+        password: DEFAULT_PASSWORD,
+        password_confirmation: DEFAULT_PASSWORD
+      )
+    end
+  end
+
   desc "Adicionar usario padrão"
   task add_default_user: :environment do
     User.create!(
