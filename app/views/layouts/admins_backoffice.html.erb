@@ -28,7 +28,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Backoffice Administrativo</sup></div>
+                <div class="sidebar-brand-text mx-3">Backoffice Admin</sup></div>
             </a>
 
             <!-- Divider -->
@@ -36,17 +36,20 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-              <span>Dashboard</span></a>
+              <%= link_to admins_backoffice_welcome_index_path do %>
+                  <i class="nav-link">
+                    <span>Dashboard</span>
+                  </i>
+              <%end%>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-              <span>Administradores</span></a>
+              <%= link_to admins_backoffice_admins_index_path do %>
+                <i class="nav-link">
+                  <span>Administradores</span>
+                </i>
+              <%end%>
             </li>
-
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
