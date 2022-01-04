@@ -2,7 +2,7 @@
   "name": "time_to_answer",
   "private": true,
   "dependencies": {
-    "bootstrap": "4.6.0",
+    "bootstrap": "3.3.7",
     "bootstrap-growl-ifightcrime": "^1.1.0",
     "fastclick": "1.0.6",
     "font-awesome": "^4.7.0",

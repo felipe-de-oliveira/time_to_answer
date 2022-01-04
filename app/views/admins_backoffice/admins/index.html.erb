@@ -1,34 +1,36 @@
 <h1 class="h3 mb-2 text-gray-800">Listando Administradores</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>Email</th>
-      <th>
-        <%= link_to new_admins_backoffice_admin_path, class:"btn btn-success btn-circle" do%>
-          <i class="fa fa-plus"></i>
-        <% end%>
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-
-    <% @admins.each do |admin| %>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= admin.id %></td>
-        <td><%= admin.email %></td>
-        
-        <td>
-          <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-info btn-circle" do%>
-            <i class="fa fa-edit"></i>
+        <th>id</th>
+        <th>Email</th>
+        <th>
+          <%= link_to new_admins_backoffice_admin_path, class:"btn btn-success btn-circle" do%>
+            <i class="fa fa-plus"></i>
           <% end%>
-          <%= link_to admins_backoffice_admin_path(admin), method: :delete, class:"btn btn-danger btn-circle", data:{ confirm: "Deseja excluir mesmo esse admininstrador?" } do%>
-            <i class="fa fa-times-circle"></i>
-          <% end%>
-        </td>  
+        </th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @admins.each do |admin| %>
+        <tr>
+          <td><%= admin.id %></td>
+          <td><%= admin.email %></td>
+
+          <td>
+            <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-info btn-circle" do%>
+              <i class="fa fa-edit"></i>
+            <% end%>
+            <%= link_to admins_backoffice_admin_path(admin), method: :delete, class:"btn btn-danger btn-circle", data:{ confirm: "Deseja excluir mesmo esse admininstrador?" } do%>
+              <i class="fa fa-times-circle"></i>
+            <% end%>
+          </td>  
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @admins %>
+</div>
