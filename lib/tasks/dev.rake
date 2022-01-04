@@ -1,4 +1,5 @@
 DEFAULT_PASSWORD = 123456
+DEFAULT_FILES_PATH = File.join(Rails.root, 'lib', 'tmp')
 
 namespace :dev do
   desc "TODO"
@@ -21,6 +22,9 @@ namespace :dev do
 
     puts "Criando um Usuário padrão..."
     %x(rails dev:add_default_user)
+    
+    puts "Cadastrando Assuntos Padrões..."
+    %x(rails dev:add_subjects)
   end      
     
   desc "Adicionar administrador padrão"
@@ -50,5 +54,15 @@ namespace :dev do
       password: DEFAULT_PASSWORD,
       password_confirmation: DEFAULT_PASSWORD
     )
+  end
+ 
+  desc "Adiciona assuntos padrão"
+  task add_subjects: :environment do
+   file_name = 'subjects.txt'
+   file_path = File.join(DEFAULT_FILES_PATH, file_name)
+ 
+    File.open(file_path, 'r').each do |line|
+     Subject.create!(description: line.strip)
+    end
   end
 end
