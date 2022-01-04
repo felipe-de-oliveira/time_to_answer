@@ -24,7 +24,9 @@
           <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-info btn-circle" do%>
             <i class="fa fa-edit"></i>
           <% end%>
-          <a href="#" class="btn btn-danger btn-circle"><i class="fa fa-times-circle"></i></a>
+          <%= link_to admins_backoffice_admin_path(admin), method: :delete, class:"btn btn-danger btn-circle", data:{ confirm: "Deseja excluir mesmo esse admininstrador?" } do%>
+            <i class="fa fa-times-circle"></i>
+          <% end%>
         </td>  
       </tr>
     <% end %>
