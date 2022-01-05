@@ -28,7 +28,7 @@ class AdminsBackoffice::SubjectsController < AdminsBackofficeController
   
   def destroy
     if @subject.destroy
-      redirect_to admins_backoffice_sebjects_path, notice:"Assuntos/Aréas apagado com sucesso!"
+      redirect_to admins_backoffice_subjects_path, notice:"Assuntos/Aréas apagado com sucesso!"
     else 
       render :index
     end
