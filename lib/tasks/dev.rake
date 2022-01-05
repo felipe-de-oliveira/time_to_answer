@@ -25,9 +25,13 @@ namespace :dev do
     
     puts "Cadastrando Assuntos Padrões..."
     %x(rails dev:add_subjects)
+
+    puts "Cadastrando Perguntas e Respostas..."
+    %x(rails dev:add_answers_and_questions)
+
   end      
     
-  desc "Adicionar administrador padrão"
+  desc "Adiciona administrador padrão"
   task add_default_admin: :environment do
     Admin.create!(
       email: 'admin@admin.com',
@@ -36,7 +40,7 @@ namespace :dev do
     )
   end
 
-  desc "Adicionar administrador padrão"
+  desc "Adiciona administrador padrão"
   task add_extras_admins: :environment do
     10.times do |i|
       Admin.create!(
@@ -47,7 +51,7 @@ namespace :dev do
     end
   end
 
-  desc "Adicionar usario padrão"
+  desc "Adiciona usario padrão"
   task add_default_user: :environment do
     User.create!(
       email: 'user@user.com',
@@ -60,9 +64,21 @@ namespace :dev do
   task add_subjects: :environment do
    file_name = 'subjects.txt'
    file_path = File.join(DEFAULT_FILES_PATH, file_name)
- 
+
     File.open(file_path, 'r').each do |line|
      Subject.create!(description: line.strip)
     end
+  end
+  
+  desc "Adiciona perguntas e respostas"
+  task add_answers_and_questions: :environment do
+    Subject.all.each do |subject|
+      rand(5..10).times do |i|
+        Question.create!(
+          description:"#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+          subject: subject
+        )
+      end
+    end  
   end
 end
