@@ -37,23 +37,28 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
               <%= link_to admins_backoffice_welcome_index_path do %>
-                  <i class="nav-link">
-                    <span>Dashboard</span>
-                  </i>
-              <%end%>
-            </li>
-
-            <li class="nav-item">
+                <i class="fas fa-fw fa-tachometer-alt">  
+                  <span>Dashboard</span>
+                </i>
+              <% end %>
+        
               <%= link_to admins_backoffice_admins_path do %>
                 <i class="nav-link">
                   <span>Administradores</span>
                 </i>
-              <%end%>
+              <% end %>
+              
               <%= link_to admins_backoffice_subjects_path do %>
                 <i class="nav-link">
                   <span>Assuntos/Aréas</span>
                 </i>
-              <%end%>
+              <% end %>
+              
+              <%= link_to admins_backoffice_questions_path do %>
+                <i class="nav-link">
+                  <span>Perguntas</span>
+                </i>
+              <% end %>
             </li>
 
             <!-- Divider -->

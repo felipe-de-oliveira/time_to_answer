@@ -1,0 +1,38 @@
+<h1 class="h3 mb-2 text-gray-800">Listando Perguntas</h1>
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Descrição</th>
+        <th>Assunto</th>
+        <th>
+          <%= link_to new_admins_backoffice_question_path, class:"btn btn-success btn-circle" do%>
+            <i class="fa fa-plus"></i>
+          <% end%>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @questions.each do |questions| %>
+        <tr>
+          <td><%= questions.id %></td>
+          <td><%= questions.description.truncate(50) %></td>
+          <td><%= questions.subject.description %></td>
+
+          <td>
+            <%= link_to edit_admins_backoffice_question_path(questions), class:"btn btn-info btn-circle" do%>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <%= link_to admins_backoffice_question_path(questions), method: :delete, class:"btn btn-danger btn-circle", data:{ confirm: "Deseja excluir mesmo essa pergunta ?" } do%>
+              <i class="fa fa-times-circle"></i>
+            <% end %>
+          </td>  
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @questions %>
+</div>
