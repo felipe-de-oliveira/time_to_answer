@@ -26,7 +26,7 @@
 
               <div class="form-group">
                 <%= form.label :subject %>
-                <%= form.collection_select(:subject_id, Subject.all, :id, :description, {}, {class: "font-control"}) %>
+                <%= form.collection_select(:subject_id, @subjects, :id, :description, {}, {class: "font-control"}) %>
               </div>
               <button type="submit" class="btn btn-primary"> Salvar Alterações </button>
             <% end %> 
