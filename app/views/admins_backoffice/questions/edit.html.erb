@@ -27,6 +27,13 @@
                 <%= form.label :description %>
                 <%= form.collection_select(:subject_id, @subjects, :id, :description, {}, {class: "font-control"}) %>
               </div>
+              <div id = 'answers'>
+                <%= form.fields_for :answers do |answers| %>
+                  <%= render partial: "answer_fields", locals: { f: answers } %>
+                <% end %>
+
+                <%= link_to_add_association '[Adicionar Respostas]', form, :answers %>
+             </div>    
               <button type="submit" class="btn btn-primary"> Salvar Alterações </button>
             <% end %> 
           </div>
