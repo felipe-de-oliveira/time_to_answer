@@ -9,7 +9,7 @@
           <div class="col-lg-6">
             <div class="p-5">
                 <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Login Administrativo!</h1>
                 </div>
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name),class:"user") do |f| %> 
                   <div class="form-grup">
@@ -20,8 +20,8 @@
                   </div>
                   <% if devise_mapping.rememberable? %>
                     <label class="custom-control-label" for="customCheck">
-                      <%= f.check_box :remember_me %> Lembrar-me
-                      <%= f.label :remember_me %> 
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :remember_me %>  
                     </label>
                   <% end %>
                   <div class=" btn-user btn-block">
