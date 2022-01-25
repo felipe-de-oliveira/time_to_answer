@@ -1,16 +1,37 @@
 <!DOCTYPE html>
-<html>
+<hmtl>  
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>TimeToAnswer</title>
+   
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+   
     <%= stylesheet_link_tag    'application' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag    'user_devise' %>
   </head>
-
-  <body>
-    <h1>Layout User Devise </h1>
+    
+  <body class="login">
     <%= yield %>
+    
+    <%= javascript_include_tag 'application' %>
+
+    <% if flash %>
+      <% flash.each do |key, value| %>
+        <% javascript_tag do %>
+          $.bootstrapGrowl ('<%= value %>', {
+          type: 'danger', 
+          align: 'right', 
+          allow_dismiss: true,
+          stackup_spacing 10
+          });
+        <% end %>
+      <% end %>
+    <% end %>
   </body>
 </html>
