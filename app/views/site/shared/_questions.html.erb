@@ -1,0 +1,16 @@
+<ul class="list-group"> 
+  <% @questions.each do |question| %>
+    <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+      <%= question.description %>
+    </button>
+    
+    <ul>
+      <% question.answers.each  do |answer|%>
+        <li class="list-group-item">
+        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+          <%= answer.description %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</ul>
