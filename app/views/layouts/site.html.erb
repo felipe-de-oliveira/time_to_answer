@@ -66,21 +66,11 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-      
-        <h1>Site::Welcome#index</h1>
-        <p>Find me in app/views/site/welcome/index.html.erb</p>
-      
-        <% if user_signed_in? %>
-          <p>Usuário LOGADO: <%= current_user.email %> </p>
+        <% unless  params[:term]%>
+          <h3>ultimas perguntas cadastradas...</h3>
         <% else %>
-          <p>Usuário Não Está LOGADO</p>
-        <%end%>
-      
-        <% if admin_signed_in? %>
-          <p>Administrador LOGADO: <%= current_admin.email %></p>
-        <% else %>
-          <p>Administrador Não Está LOGADO</p>
-        <%end%>
+          <h3><%= "Resultado para os termos: \"#{params[:term]}\"..."%></h3>
+        <% end %>  
       </div>
       
       <%= yield %>
