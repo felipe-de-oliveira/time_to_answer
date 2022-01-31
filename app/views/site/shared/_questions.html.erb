@@ -1,16 +1,32 @@
+<!-- Main component for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <% unless  params[:term]%>
+    <h3>ultimas perguntas cadastradas...</h3>
+  <% else %>
+    <h3><%= "Resultado para os termos: \"#{params[:term]}\"..."%></h3>
+  <% end %>  
+</div>
+
 <ul class="list-group"> 
   <% @questions.each do |question| %>
-    <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-      <%= question.description %>
-    </button>
+    <%= form_with url: site_answer_path, local: true  do |form| %>
+      <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+        <%= question.description %>
+      </button>
     
-    <ul>
-      <% question.answers.each  do |answer|%>
-        <li class="list-group-item">
-        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-          <%= answer.description %>
+      <ul>
+        <% question.answers.each  do |answer|%>
+          <li style="list-style:none;">
+            <div class="radio">
+              <%= radio_button_tag 'answer', answer.id %>
+              <%= answer.description %>          
+            </div>
+          </li>
+        <% end %>
+        <li style="list-style:none;"> 
+          <%= form.submit "Responder", class:"btn btn-default" %>
         </li>
-      <% end %>
-    </ul>
+      </ul>
+    <% end %>
   <% end %>
 </ul>

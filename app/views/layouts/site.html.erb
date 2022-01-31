@@ -63,15 +63,6 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <% unless  params[:term]%>
-          <h3>ultimas perguntas cadastradas...</h3>
-        <% else %>
-          <h3><%= "Resultado para os termos: \"#{params[:term]}\"..."%></h3>
-        <% end %>  
-      </div>
       
       <%= yield %>
     </div> 
