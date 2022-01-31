@@ -1,1 +1,5 @@
-<h1> Resposta enviada com sucesso! </h1>
+<% if @answer.correct == true ? %>
+  <h1> Certa resposta! </h1>
+<% else %>
+  <h1> Errou, errou feio erro rude! </h1>
+<% end %>
