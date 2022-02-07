@@ -11,6 +11,9 @@
   <% @questions.each do |question| %>
     <%= form_with url: site_answer_path, local: true  do |form| %>
       <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+        <span class="badge rounded-pill bg-dark">
+          <%= link_to "#{question.subject.description} (#{question.subject.questions_count})", site_search_subject_path %>
+        </span>
         <%= question.description %>
       </button>
     

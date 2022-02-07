@@ -5,6 +5,10 @@ class Question < ApplicationRecord
 
   paginates_per 5
 
+  def self.search_subject(subject_id)
+    @questions = Question.includes(:answers).order('created_at desc')
+                         .where(subject_id: subject_id)
+  end 
   def self.search(term)
     @questions = Question.includes(:answers).order('created_at desc')
                          .where("lower(description) LIKE ? ",  "%#{term.downcase}%")

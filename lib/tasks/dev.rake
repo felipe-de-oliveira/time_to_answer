@@ -94,4 +94,14 @@ namespace :dev do
       end
     end  
   end
+
+  desc "Reseta o contador dos assuntos"
+  task reset_subject_counter: :environment do 
+    puts "Resetando o contador de assuntos..."
+    %x(rails dev:reset_subject_counter)
+
+    Subject.find_each do |subject|
+      Subject.reset_counters(subject.id, :questions)
+    end
+  end
 end
